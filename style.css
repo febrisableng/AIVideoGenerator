@@ -1,0 +1,580 @@
+/* Universal box-sizing for consistent box model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; /* Light gray background for a fresh feel */
+    margin: 0;
+    padding-top: 20px; /* Adjust top padding for better alignment */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack h1 and container */
+    align-items: center; /* Center items horizontally */
+    min-height: 100vh;
+    color: #34495e; /* Darker gray for primary text */
+}
+
+.container {
+    background-color: #ffffff; /* White container */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08); /* Softer, more spread out shadow */
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px; /* Add margin-top to separate from h1 */
+    position: relative; /* Added for absolute positioning of children */
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50; /* Dark blue-gray for main title */
+    margin-bottom: 0; /* Remove bottom margin to reduce space */
+    font-size: 2.2em;
+    padding: 0 10px; /* Add some padding for smaller screens */
+}
+
+.section-card {
+    background-color: #ffffff; /* White card background */
+    border: 1px solid #dfe6e9; /* Lighter, subtle border */
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04); /* Lighter card shadow */
+}
+
+.section-card h2 {
+    color: #3498db; /* A more vibrant blue for section titles */
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #aed6f1; /* Lighter blue border */
+    padding-bottom: 10px;
+    font-size: 1.6em;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a6572; /* Medium dark gray for labels */
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.input-group input[type="text"],
+.input-group select,
+.input-group textarea {
+    width: 100%; /* Changed to 100% to fill parent width */
+    padding: 12px;
+    border: 1px solid #bdc3c7; /* Softer gray border */
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    transition: border-color 0.3s ease;
+}
+
+.input-group select {
+    background-color: #f8f9fa; /* Very light gray to subtly distinguish dropdowns */
+}
+
+.input-group input[type="text"]:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: #3498db; /* Vibrant blue on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25); /* Adjusted shadow for new blue */
+}
+
+button {
+    background-color: #3498db; /* Primary vibrant blue button */
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #2980b9; /* Slightly darker blue on hover */
+    transform: translateY(-2px);
+}
+
+#add-character {
+    background-color: #2ecc71; /* Green for add character (a bit brighter) */
+}
+
+#add-character:hover {
+    background-color: #27ae60; /* Darker green */
+}
+
+.character-input-group {
+    border: 1px dashed #aed6f1; /* Lighter dashed border */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    position: relative;
+    background-color: #fdfefe; /* Very light background for character cards */
+}
+
+.character-input-group h3 {
+    color: #2c3e50; /* Dark blue-gray for character titles */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.character-input-group .remove-character {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c; /* Red for remove (a bit brighter) */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.character-input-group .remove-character:hover {
+    background-color: #c0392b;
+}
+
+/* Styles for Additional Details section with buttons */
+.input-group-with-buttons {
+    margin-bottom: 18px;
+}
+
+.textarea-with-buttons {
+    display: flex; /* Make it a flex container */
+    align-items: flex-start;
+    gap: 10px; /* Space between textarea and buttons */
+    /* Removed position: relative; */
+    /* Removed padding-right from here */
+}
+
+.textarea-with-buttons textarea {
+    flex-grow: 1; /* Allow textarea to take available space */
+    width: 100%; /* Ensure textarea takes full width of its flex parent */
+    padding: 12px; /* Keep internal padding */
+    border: 1px solid #90caf9;
+    border-radius: 5px;
+    font-size: 1em;
+    min-height: 100px;
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: border-color 0.3s ease;
+}
+
+.textarea-buttons {
+    /* Removed position: absolute; */
+    /* Removed top and right properties */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.textarea-buttons .copy-button,
+.textarea-buttons .reset-button {
+    width: 35px; /* Fixed width for buttons */
+    height: 35px; /* Fixed height for buttons */
+    padding: 0; /* Remove padding for icon buttons */
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* Square buttons with rounded corners */
+}
+
+.textarea-buttons .copy-button {
+    background-color: #1abc9c; /* Teal for copy button */
+}
+
+.textarea-buttons .copy-button:hover {
+    background-color: #16a085;
+}
+
+.textarea-buttons .reset-button {
+    background-color: #f39c12; /* Orange for reset button */
+    color: white; /* Changed text color to white for better contrast */
+}
+
+.textarea-buttons .reset-button:hover {
+    background-color: #e67e22;
+}
+
+/* Styles for Prompt Output section */
+.prompt-output {
+    background-color: #ecf0f1; /* Light gray background for output */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 25px;
+    border: 1px solid #dfe6e9; /* Light, subtle border */
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Ensure padding/border are included in its width */
+}
+
+.output-header h3 {
+    margin: 0; /* Remove default margin from h3 */
+    color: #2c3e50; /* Dark blue-gray for output section title */
+}
+
+.output-header .copy-button {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #1abc9c; /* Teal for output copy button */
+    margin-left: 10px; /* Add margin to separate from title */
+}
+
+.output-header .copy-button:hover {
+    background-color: #16a085;
+}
+
+.prompt-output .editable-prompt,
+.prompt-output .editable-dialog {
+    width: 100%; /* Changed to 100% */
+    padding: 12px;
+    border: 1px solid #bdc3c7; /* Softer gray border */
+    border-radius: 5px;
+    font-size: 1em;
+    min-height: 120px;
+    box-sizing: border-box;
+    background-color: #ffffff; /* White background for editable prompt */
+    color: #34495e; /* Darker gray for text */
+}
+
+.prompt-output .non-editable-prompt {
+    width: 100%; /* Ensure it takes full width */
+    padding: 12px;
+    border: 1px solid #e0e0e0; /* Lighter border for non-editable */
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #ecf0f1; /* Light gray background for non-editable prompt */
+    color: #34495e; /* Darker gray for text */
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.prompt-output pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.prompt-output .non-editable-text {
+    width: 100%; /* Ensure it takes full width */
+    padding: 12px;
+    border: 1px solid #e0e0e0; /* Lighter border for non-editable */
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #f5f5f5; /* Very light gray for non-editable */
+    color: #424242; /* Slightly lighter text for non-editable */
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.header-controls {
+    position: absolute; /* Position absolutely within the container */
+    top: 55px; /* Keep distance from the top */
+    right: 35px; /* Increase distance from the right to move left */
+    z-index: 10; /* Ensure it stays on top of other content */
+    width: auto; /* Allow width to be determined by content */
+    max-width: none;
+    margin-bottom: 0; /* Remove margin as it's absolutely positioned */
+    padding: 0; /* Remove padding as it's positioned */
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px; /* Even smaller width */
+    height: 22px; /* Even smaller height */
+    margin-right: 8px; /* Slightly reduced space */
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bdc3c7; /* Light gray for off state */
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; /* Even smaller thumb */
+    width: 18px; /* Even smaller thumb */
+    left: 2px; /* Adjusted left position */
+    bottom: 2px; /* Adjusted bottom position */
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3498db; /* Blue for on state */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #3498db;
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px); /* Adjusted translation */
+}
+
+.mode-label {
+    color: #34495e; /* Dark text for mode label */
+    font-size: 0.85em; /* Slightly smaller font size */
+    font-weight: 600;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #2c3e50; /* Dark background */
+    color: #ecf0f1; /* Light text */
+}
+
+body.dark-mode .container {
+    background-color: #34495e; /* Slightly lighter dark for container */
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode h1 {
+    color: #ecf0f1; /* Light color for main title */
+}
+
+body.dark-mode .mode-label {
+    color: #ecf0f1; /* Light text for mode label in dark mode */
+}
+
+body.dark-mode .section-card {
+    background-color: #3d5166; /* Darker background for cards */
+    border: 1px solid #4a6572;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .section-card h2 {
+    color: #aed6f1; /* Lighter blue for section titles */
+    border-bottom-color: #4a6572;
+}
+
+body.dark-mode .input-group label {
+    color: #ecf0f1; /* Light text for labels */
+}
+
+body.dark-mode .input-group input[type="text"],
+body.dark-mode .input-group select,
+body.dark-mode .input-group textarea {
+    background-color: #556d7b; /* Slightly different dark background for inputs/selects */
+    border: 1px solid #6c889a; /* Slightly adjusted border for dark mode */
+    color: #ecf0f1;
+}
+
+body.dark-mode .input-group input[type="text"]:focus,
+body.dark-mode .input-group select:focus,
+body.dark-mode .input-group textarea:focus {
+    border-color: #aed6f1;
+    box-shadow: 0 0 0 3px rgba(174, 214, 241, 0.25);
+}
+
+body.dark-mode button {
+    background-color: #3498db;
+}
+
+body.dark-mode button:hover {
+    background-color: #2980b9;
+}
+
+body.dark-mode #add-character {
+    background-color: #27ae60;
+}
+
+body.dark-mode #add-character:hover {
+    background-color: #229a53;
+}
+
+body.dark-mode .character-input-group {
+    background-color: #4a6572;
+    border: 1px dashed #5a748a;
+}
+
+body.dark-mode .character-input-group h3 {
+    color: #ecf0f1;
+}
+
+body.dark-mode .character-input-group .remove-character {
+    background-color: #c0392b;
+}
+
+body.dark-mode .character-input-group .remove-character:hover {
+    background-color: #a93226;
+}
+
+body.dark-mode .textarea-buttons .copy-button {
+    background-color: #16a085;
+}
+
+body.dark-mode .textarea-buttons .copy-button:hover {
+    background-color: #13887c;
+}
+
+body.dark-mode .textarea-buttons .reset-button {
+    background-color: #e67e22;
+}
+
+body.dark-mode .textarea-buttons .reset-button:hover {
+    background-color: #d35400;
+}
+
+body.dark-mode .prompt-output {
+    background-color: #34495e;
+    border: 1px solid #4a6572;
+}
+
+body.dark-mode .prompt-output h3 {
+    color: #ecf0f1;
+}
+
+body.dark-mode .prompt-output .copy-button {
+    background-color: #16a085;
+}
+
+body.dark-mode .prompt-output .copy-button:hover {
+    background-color: #13887c;
+}
+
+body.dark-mode .prompt-output .editable-prompt {
+    background-color: #4a6572;
+    border: 1px solid #5a748a;
+    color: #ecf0f1;
+}
+
+body.dark-mode .prompt-output .non-editable-prompt {
+    background-color: #3d5166;
+    border: 1px solid #4a6572;
+    color: #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        padding: 0 5px;
+    }
+
+    .section-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .section-card h2 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+
+    .input-group label {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+
+    .input-group input[type="text"],
+    .input-group select,
+    .input-group textarea {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 1em;
+        margin-top: 10px;
+    }
+
+    .character-input-group {
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .character-input-group h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .character-input-group .remove-character {
+        width: 25px;
+        height: 25px;
+        font-size: 0.9em;
+    }
+
+    .prompt-output {
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .prompt-output h3 {
+        font-size: 1.4em;
+    }
+
+    .prompt-output .editable-prompt,
+    .prompt-output .non-editable-prompt pre {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+} 

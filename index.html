@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veo 3 Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>AI Video Prompt Generator by aigenerator.ukm.id</h1>
+    
+    <div class="container">
+        <div class="header-controls">
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <span class="mode-label">Light Mode</span>
+            </div>
+        </div>
+
+        <section class="section-card">
+            <h2>Detail Subjek</h2>
+            <div class="input-group">
+                <label for="char1-name">Nama Karakter 1:</label>
+                <input type="text" id="char1-name" placeholder="Contoh: Detektif, Pria Tua, Wanita">
+            </div>
+            <div class="input-group">
+                <label for="char1-nationality">Kewarganegaraan Karakter 1:</label>
+                <input type="text" id="char1-nationality" placeholder="Contoh: Indonesia, Jepang">
+            </div>
+            <div class="input-group">
+                <label for="char1-characteristic">Karakteristik Subjek 1:</label>
+                <input type="text" id="char1-characteristic" placeholder="Contoh: Berani, Tangguh, Lemah Gemulai, Macho">
+            </div>
+            <div class="input-group">
+                <label for="char1-action">Aksi Utama Karakter 1:</label>
+                <input type="text" id="char1-action" placeholder="Contoh: Sedang bertarung, Sedang duduk, Sedang tidur">
+            </div>
+            <div class="input-group">
+                <label for="char1-emotion">Emosi Karakter 1:</label>
+                <input type="text" id="char1-emotion" placeholder="Contoh: Marah, Cemas, Gembira">
+            </div>
+
+            <button id="add-character">Tambah Karakter</button>
+            <div id="additional-characters">
+                <!-- Additional characters will be added here by JavaScript -->
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Latar</h2>
+            <div class="input-group">
+                <label for="location">Lokasi:</label>
+                <input type="text" id="location" placeholder="Contoh: Di tengah kota, Hutan Belantara, di tengah sawah">
+            </div>
+            <div class="input-group">
+                <label for="time">Waktu:</label>
+                <select id="time">
+                    <option value="Pagi Cerah">Pagi Cerah</option>
+                    <option value="Pagi Hari berkabut">Pagi Hari berkabut</option>
+                    <option value="Siang Terik">Siang Terik</option>
+                    <option value="Sore Menjelang Senja">Sore Menjelang Senja</option>
+                    <option value="Malam Hari Tenang">Malam Hari Tenang</option>
+                    <option value="Dini Hari Berkabut">Dini Hari Berkabut</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="weather">Cuaca:</label>
+                <select id="weather">
+                    <option value="Cerah Berawan">Cerah Berawan</option>
+                    <option value="Hujan Gerimis">Hujan Gerimis</option>
+                    <option value="Hujan Deras">Hujan Deras</option>
+                    <option value="Berkabut Tebal">Berkabut Tebal</option>
+                    <option value="Berangin Kencang">Berangin Kencang</option>
+                    <option value="Badai Petir">Badai Petir</option>
+                    <option value="Bersalju">Bersalju</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="season">Musim:</label>
+                <select id="season">
+                    <option value="Musim dingin">Musim dingin</option>
+                    <option value="Musim semi">Musim semi</option>
+                    <option value="Musim panas">Musim panas</option>
+                    <option value="Musim gugur">Musim gugur</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Kamera</h2>
+            <div class="input-group">
+                <label for="camera-style">Gaya:</label>
+                <select id="camera-style">
+                    <option value="Realistic & Cinematic">Realistic & Cinematic</option>
+                    <option value="Dokumenter">Dokumenter</option>
+                    <option value="Futuristik">Futuristik</option>
+                    <option value="Vintage Efek VHS">Vintage Efek VHS</option>
+                    <option value="Animasi 3D">Animasi 3D</option>
+                    <option value="Pixel">Pixel</option>
+                    <option value="Kartun">Kartun</option>
+                    <option value="Black and White">Black and White</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="camera-movement">Pergerakan Kamera:</label>
+                <select id="camera-movement">
+                    <option value="Action Run">Action Run (Lari Aksi)</option>
+                    <option value="Arc">Arc (Busur)</option>
+                    <option value="Bullet Time">Bullet Time (Waktu Peluru)</option>
+                    <option value="Car Grip">Car Grip (Genggaman Mobil)</option>
+                    <option value="Crane-up">Crane-up (Angkat Derek)</option>
+                    <option value="Crash Zoom-in">Crash Zoom-in (Zoom Mendadak Masuk)</option>
+                    <option value="Dolly In">Dolly In (Dolly Masuk)</option>
+                    <option value="Dolly Out">Dolly Out (Dolly Keluar)</option>
+                    <option value="Dolly Right">Dolly Right (Dolly Kanan)</option>
+                    <option value="Dolly Zoom-in">Dolly Zoom-in (Dolly Zoom Masuk)</option>
+                    <option value="Dutch Angle">Dutch Angle (Sudut Belanda)</option>
+                    <option value="Focus Change">Focus Change (Perubahan Fokus)</option>
+                    <option value="FPV Drone">FPV Drone (Drone FPV)</option>
+                    <option value="Fisheye">Fisheye (Mata Ikan)</option>
+                    <option value="Handheld">Handheld (Genggam)</option>
+                    <option value="Hyperlapse">Hyperlapse (Hiperlapse)</option>
+                    <option value="Lazy Susan">Lazy Susan (Lazy Susan)</option>
+                    <option value="Lens Flare">Lens Flare (Kilatan Lensa)</option>
+                    <option value="Levitation">Levitation (Levitasi)</option>
+                    <option value="Low Shutter">Low Shutter (Rana Lambat)</option>
+                    <option value="Pan Left">Pan Left (Geser Kiri)</option>
+                    <option value="Pan Right">Pan Right (Geser Kanan)</option>
+                    <option value="Pedestal Down">Pedestal Down (Pijakan Bawah)</option>
+                    <option value="Pedestal Up">Pedestal Up (Pijakan Atas)</option>
+                    <option value="Rap Flex">Rap Flex (Fleksibel Rap)</option>
+                    <option value="Robo Arm">Robo Arm (Lengan Robot)</option>
+                    <option value="Roll">Roll (Putar)</option>
+                    <option value="Static Shot">Static Shot (Bidikan Statis)</option>
+                    <option value="Super Dolly-in">Super Dolly-in (Super Dolly Masuk)</option>
+                    <option value="Through Object-in">Through Object-in (Melalui Objek Masuk)</option>
+                    <option value="Tilt Down">Tilt Down (Miring Bawah)</option>
+                    <option value="Tilt Up">Tilt Up (Miring Atas)</option>
+                    <option value="Track Left">Track Left (Lacak Kiri)</option>
+                    <option value="Track Right">Track Right (Lacak Kanan)</option>
+                    <option value="360 Orbit">360 Orbit (Orbit 360)</option>
+                    <option value="Zoom In">Zoom In (Perbesar)</option>
+                    <option value="Zoom Out">Zoom Out (Perkecil)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="camera-angle">Sudut Kamera:</label>
+                <select id="camera-angle">
+                    <option value="Eye Level">Eye Level (Setinggi mata)</option>
+                    <option value="Low Angle">Low Angle (Sudut rendah)</option>
+                    <option value="High Angle">High Angle (Sudut tinggi)</option>
+                    <option value="Bird’s Eye View">Bird’s Eye View</option>
+                    <option value="Worm’s Eye View">Worm’s Eye View</option>
+                    <option value="Over The Shoulder">Over The Shoulder (Atas bahu)</option>
+                    <option value="POV">POV (Point Of View Subjek)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="focus">Fokus:</label>
+                <select id="focus">
+                    <option value="Fokus tajam pada subjek utama">Fokus tajam pada subjek utama</option>
+                    <option value="Fokus dangkal dengan latar belakang blur">Fokus dangkal dengan latar belakang blur</option>
+                    <option value="Fokus dalam pada seluruh adegan">Fokus dalam pada seluruh adegan</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="lighting">Pencahayaan:</label>
+                <select id="lighting">
+                    <option value="Cahaya alami yang lembut">Cahaya alami yang lembut</option>
+                    <option value="Pencahayaan studio dramatis">Pencahayaan studio dramatis</option>
+                    <option value="Siluet saat matahari terbenam">Siluet saat matahari terbenam</option>
+                    <option value="Cahaya neon vibran">Cahaya neon vibran</option>
+                    <option value="Cahaya alami matahari terbit">Cahaya alami matahari terbit</option>
+                    <option value="Cahaya terang dan cerah">Cahaya terang dan cerah</option>
+                    <option value="Cahaya low/remang remang">Cahaya low/remang remang</option>
+                    <option value="Cahaya kontras tinggi">Cahaya kontras tinggi</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="color-grading">Gradasi Warna:</label>
+                <select id="color-grading">
+                    <option value="Gradasi warna alami">Gradasi warna alami</option>
+                    <option value="Hangat dan Cerah">Hangat dan Cerah</option>
+                    <option value="Dingin dan Gelap">Dingin dan Gelap</option>
+                    <option value="Monochrome">Monochrome</option>
+                    <option value="Vibrant dan Saturasi tinggi">Vibrant dan Saturasi tinggi</option>
+                    <option value="Pudar Nostalgik">Pudar Nostalgik</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Audio</h2>
+            <div class="input-group">
+                <label for="dialog-type">Dialog:</label>
+                <select id="dialog-type">
+                    <option value="Tanpa dialog">Tanpa dialog</option>
+                    <option value="Informatif">Informatif</option>
+                    <option value="Natural dialog">Natural dialog</option>
+                    <option value="Monolog">Monolog</option>
+                    <option value="Interview">Interview</option>
+                </select>
+            </div>
+            <div id="dialog-content-per-character">
+                <!-- Dialog content inputs will be added here by JavaScript -->
+            </div>
+            <div class="input-group">
+                <label for="voice-mood">Mood Suara:</label>
+                <input type="text" id="voice-mood" placeholder="Contoh: Tense, Tegang, Cemas, Ragu, Khawatir, Marah, Emosi">
+            </div>
+            <div class="input-group">
+                <label for="environmental-sound">Suara Lingkungan:</label>
+                <input type="text" id="environmental-sound" placeholder="Contoh: Suara kota, suara kicau burung, suara keramaian samar">
+            </div>
+            <div class="input-group">
+                <label for="background-music">Background Music:</label>
+                <input type="text" id="background-music" placeholder="Contoh: Musik orkestra, Horor, Intense, Tenang, Slow">
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Kualitas Video & Durasi</h2>
+            <div class="input-group">
+                <label for="video-quality">Kualitas Video:</label>
+                <select id="video-quality">
+                    <option value="8K">8K</option>
+                    <option value="4K">4K</option>
+                    <option value="Full HD">Full HD</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="video-duration">Durasi Video:</label>
+                <select id="video-duration">
+                    <option value="8 detik">8 detik</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="video-ratio">Rasio Video:</label>
+                <select id="video-ratio">
+                    <option value="LANDSCAPE 16:9">LANDSCAPE 16:9</option>
+                    <option value="PORTRAIT 9:16">PORTRAIT 9:16</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Detail Tambahan</h2>
+            <div class="input-group-with-buttons">
+                <label for="additional-details">Detail Tambahan Penting:</label>
+                <div class="textarea-with-buttons">
+                    <textarea id="additional-details" rows="4" placeholder="Langit terbentang luas di belakangnya, berwarna jingga keunguan, dengan awan tipis memantulkan cahaya keemasan. Gerakannya lambat, seperti menikmati jeda waktu. Kamera mengambil sudut close-up, menampilkan ekspresi damai dan kontemplatif. Lalu bergeser ke wide shot. Tidak ada dialog, hanya bunyi ambience kota dari kejauhan sedikit suara klakson, desiran angin, dan sayup burung kembali ke sarang. Tone warna didominasi gradasi pastel hangat: peach, kuning lembut, dan lavender senja, dengan sedikit efek grain seperti film analog untuk menciptakan rasa nostalgia.\n\nDi akhir video, kamera naik pelan melalui sudut drone."></textarea>
+                    <div class="textarea-buttons">
+                        <button type="button" class="copy-button" data-target="additional-details" title="Copy to clipboard"><i class="fas fa-copy"></i></button>
+                        <button type="button" class="reset-button" data-target="additional-details" title="Reset field"><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button id="generate-prompt">Generate Prompt</button>
+
+        <section class="section-card">
+            <h2>Hasil Prompt</h2>
+            <div class="prompt-output">
+                <div class="output-header">
+                    <h3>Prompt Bahasa Indonesia:</h3>
+                    <button type="button" class="copy-button" data-target="prompt-id" title="Copy to clipboard"><i class="fas fa-copy"></i></button>
+                </div>
+                <textarea id="prompt-id" rows="15" class="editable-prompt"></textarea>
+            </div>
+            <div class="prompt-output">
+                <div class="output-header">
+                    <h3>Prompt English:</h3>
+                    <button type="button" class="copy-button" data-target="prompt-en-container" title="Copy to clipboard"><i class="fas fa-copy"></i></button>
+                </div>
+                <div id="prompt-en-container">
+                    <!-- English prompt will be dynamically added here -->
+                </div>
+            </div>
+            <button id="reset-prompt-output" class="reset-button">Reset Hasil Prompt</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
