@@ -178,8 +178,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Function to attach event listeners to character name inputs
+    function attachCharacterNameListeners() {
+        for (let i = 1; i <= characterCount; i++) {
+            const charNameInput = document.getElementById(`char${i}-name`);
+            if (charNameInput) {
+                charNameInput.removeEventListener('input', updateCharacterRelatedFields); // Prevent duplicate listeners
+                charNameInput.addEventListener('input', updateCharacterRelatedFields);
+            }
+        }
+    }
+
     // Initial update for character related fields
     updateCharacterRelatedFields();
+    attachCharacterNameListeners(); // Attach listeners for initial character
 
     // Event listener for adding new characters
     addCharacterButton.addEventListener('click', () => {
@@ -220,8 +232,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // A more robust solution would re-index IDs or use a data structure to manage characters
             characterCount--; // Decrement character count if a character is removed
             updateCharacterRelatedFields();
+            attachCharacterNameListeners(); // Re-attach listeners after character removal
         });
-        updateCharacterRelatedFields();
+        updateCharacterRelatedFields(); // Update dialog fields for new character
+        attachCharacterNameListeners(); // Attach listener for the new character
     });
 
     // Event listener for dialog type change
